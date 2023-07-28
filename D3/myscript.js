@@ -7,21 +7,7 @@ const btnSearch = document.querySelector('.btn');
 
 let searchValue = '';
 
-btnSearch.addEventListener('click', (event) => {
-    // Acquisisce la query
-    searchValue = inputSearch.value;
-    event.preventDefault();
-
-    let card;
-
-    // Controlla lo stato di visualizzazione delle cards
-    for(let i = 0; i < 12; i++) {
-        card = document.querySelector(`#pexel-card-${i}`);
-        if(!card.classList.contains('d-none')) {
-            card.classList.add('d-none');
-        }
-    }
-
+function makeRequest() {
     // Avvia la richiesta HTTP fornendo la query inserita
     fetch(`https://api.pexels.com/v1/search?query=${searchValue}&per_page=12`, {
         method: 'GET',
@@ -84,4 +70,24 @@ btnSearch.addEventListener('click', (event) => {
             console.error(err);
         }
     });
+}
+
+btnSearch.addEventListener('click', (event) => {
+    // Acquisisce la query
+    searchValue = inputSearch.value;
+    event.preventDefault();
+
+    let card;
+
+    // Controlla lo stato di visualizzazione delle cards
+    for(let i = 0; i < 12; i++) {
+        card = document.querySelector(`#pexel-card-${i}`);
+        if(!card.classList.contains('d-none')) {
+            card.classList.add('d-none');
+        }
+    }
+
+    // Chiama la funzione per la richiesta HTTP
+    makeRequest();
 }, false)
+
