@@ -62,7 +62,7 @@ btnSearch.addEventListener('click', (event) => {
                 pexelsCardPhotographer = document.querySelector(`#pexel-card-${index} .photographer a`);
 
                 pexelsCard.classList.remove('d-none');
-                pexelsCardImg.src = `${img.src.original}`;
+                pexelsCardImg.src = `${img.src.large}`;
                 pexelsCardLink.textContent = `${img.alt}`;
                 pexelsCardLink.href = `${img.url}`;
                 pexelsCardPhotographer.textContent = `${img.photographer}`;
