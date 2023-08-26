@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap v.5.3 -->
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Backoffice Prodotti</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./index.html">
+                <img src="./logo.png" class="rounded-circle" width="40" height="40" alt="" loading="lazy"> e S t o r e
+              </a>
+            </div>
+        </nav>
+
+        <header class="d-flex justify-content-between">
+            <h1 class="resource-title">Prodotti</h1>
+            <button class="btn btn-success mb-3" onclick="showProductForm()">Aggiungi un prodotto</button>
+        </header>
+
+        <div class="table-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrizione</th>
+                        <th>Marca</th>
+                        <th>Prezzo</th>
+                        <th class="text-center">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody id="products-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="product-form-container" class="container d-none">
+            <h1 id="form-title" class="resource-title"></h1>
+            <form id="product-form" novalidate>
+                <input type="hidden" id="product-id">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="name" required>
+                    <span class="text-danger" id="name-error"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descrizione</label>
+                    <input type="text" class="form-control" id="description" required>
+                    <span class="text-danger" id="description-error"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="brand" required>
+                    <span class="text-danger" id="brand-error"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">URL immagine</label>
+                    <input type="text" class="form-control" id="imageUrl" required>
+                    <span class="text-danger" id="imageUrl-error"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Prezzo</label>
+                    <input type="text" class="form-control" id="price" required>
+                    <span class="text-danger" id="price-error"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salva</button>
+            </form>
+        </div>
+
+        <script src="./bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="./backoffice.js"></script>
+    </body>
+</html>
