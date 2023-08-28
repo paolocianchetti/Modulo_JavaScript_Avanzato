@@ -121,6 +121,10 @@ function showProductForm() {
     }
 }
 
+function isNumberValid(value) {
+    return !isNaN(parseFloat(value)) && !isNaN(value - 0) && (value > 0);
+}
+
 function validateProductForm() {
     const errorsObj = {};
 
@@ -143,7 +147,7 @@ function validateProductForm() {
     else errorsObj.imageUrl = '';
 
     if (!priceValue) errorsObj.price = 'Il campo prezzo è obbligatorio.';
-    else if (priceValue <= 0) errorsObj.price = 'Il prezzo deve essere positivo e diverso da zero.'
+    else if(!isNumberValid(priceValue)) errorsObj.price = 'Il campo prezzo deve essere un valore numerico positivo e diverso da zero.';
     else errorsObj.price = '';
 
     const validation = {
